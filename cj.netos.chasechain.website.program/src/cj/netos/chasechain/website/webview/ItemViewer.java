@@ -99,7 +99,8 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
 
     private void printMedias(Element ul, List<Media> medias, String accessToken, String nonce) {
         if (medias.isEmpty()) {
-            ul.empty();
+            ul.remove();
+            return;
         }
         if (medias.size() == 1) {
             Media media = medias.get(0);
@@ -120,10 +121,10 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
                 return;
             }
         }
-
+        Element cfigure = ul.select("figure").first().clone();
+        ul.empty();
         for (Media media : medias) {
-            Element figure = ul.select("figure").first().clone();
-            ul.empty();
+            Element figure = cfigure.clone();
             String src=String.format("%s?accessToken=%s&nonce=%s", media.getSrc(), accessToken, nonce);
             figure.select("a").attr("href", src);
             figure.select("img").attr("src", src);
