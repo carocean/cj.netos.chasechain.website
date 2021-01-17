@@ -1,0 +1,130 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.official {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.official a{
+    color: black;
+}
+.official img{
+    width: 80px;
+    height: 80px;
+}
+.official .app-name span{
+    font-size: 30px;
+    border-bottom: 1px dashed  green;
+}
+.official .kouhao1 span{
+    font-size: 14px;
+}
+.official .kouhao2 span{
+    font-size: 14px;
+    display: inline-block;
+    /*padding-left: 4em;*/
+    /*color: #3E5C9A;*/
+}
+
+.wrapper {
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.subject {
+    clear: both;
+    text-align: right;
+    font-size: 14px;
+    color: grey;
+    padding: 10px 0 10px 0;
+    text-align: justify;
+    text-align-last: justify;
+}
+.subject  div {
+    display: inline-block;
+}
+.subject .creator{
+    padding-right: 10px;
+}
+.subject .creator >img{
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+.subject .pool >img{
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+.extra {
+    font-size: 14px;
+}
+.extra .recommenders{
+    padding-bottom: 5px;
+    font-size: 14px;
+}
+.extra .recommenders >img{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 5px;
+}
+.extra .recommenders span{
+    font-size: 14px;
+}
+.extra .likes{
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+.extra .likes span{
+    color: #3E5C9A;
+    display: inline-block;
+}
+.extra .likes img{
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 5px;
+}
+.extra .commends{
+    background: #f5f5f5;
+    padding: 5px 5px 5px 5px;
+}
+.extra .commends .nick{
+    color: #3E5C9A;
+}
+.extra .commends .commend{
+    display: inline-block;
+    padding-left: 5px;
+}
+.extra .commends .time{
+    color: grey;
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 12px;
+}
+share{
+    padding: 10px;
+    background: #f5f5f5;
+    display: inline-block;
+}
+share a{
+    display: inline-block !important;
+}
+share img{
+    width: 40px !important;
+    height: 40px !important;
+    padding-right: 10px;
+}
+share span{
+    line-height: 20px;
+    color: #222222;
+
+}
