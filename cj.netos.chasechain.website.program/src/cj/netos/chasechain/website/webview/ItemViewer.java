@@ -106,9 +106,15 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
             if ("share".equals(media.getType())) {
                 Element share = ul.select("share").first().clone();
                 ul.empty();
-                String src=String.format("%s?accessToken=%s&nonce=%s", media.getSrc(), accessToken, nonce);
-                share.select("a").attr("href", src);
-                share.select("img").attr("src", src);
+                String leading=media.getLeading();
+                int pos=leading.indexOf("?");
+                if (pos < 0) {
+                    leading=String.format("%s?accessToken=%s&nonce=%s", leading, accessToken, nonce);
+                }else{
+                    leading=String.format("%s&accessToken=%s&nonce=%s", leading, accessToken, nonce);
+                }
+                share.select("a").attr("href", media.getSrc());
+                share.select("img").attr("src", leading);
                 share.select("span").html(media.getText());
                 ul.appendChild(share);
                 return;
