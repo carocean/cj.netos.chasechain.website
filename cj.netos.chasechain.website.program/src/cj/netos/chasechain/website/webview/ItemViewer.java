@@ -4,6 +4,7 @@ import cj.lns.chip.sos.cube.framework.IDocument;
 import cj.lns.chip.sos.cube.framework.IQuery;
 import cj.netos.chasechain.website.*;
 import cj.netos.chasechain.website.model.AppAccount;
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceSite;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
@@ -77,17 +78,19 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
         String title = "";
         if ("geo.receptor".equals(boxPointer.getType())) {
             GeosphereDocument document = poolService.getGeoDocument(docid);
-            doc.select(".fx_content").html(document.getText());
+            String text=document.getText().replace("\n","<br/>");
+            doc.select(".fx_content").html(text);
             medias = poolService.listGeoMedia(docid);
 //            System.out.println(new Gson().toJson(medias));
-            title = document.getText();
+            title = text;
         } else {
             String creator = item.getPointer().getCreator();
             ChannelDocument document = poolService.getChannelDocument(creator, docid);
-            doc.select(".fx_content").html(document.getContent());
+            String text=document.getContent().replace("\n","<br/>");
+            doc.select(".fx_content").html(text);
             medias = poolService.listChannelMedia(creator, box.getPointer().getId(), docid);
 //            System.out.println(new Gson().toJson(medias));
-            title = document.getContent();
+            title = text;
         }
         if (!StringUtil.isEmpty(title) && title.length() > 40) {
             title = title.substring(0, 40);

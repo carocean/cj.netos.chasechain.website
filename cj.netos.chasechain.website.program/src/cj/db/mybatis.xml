@@ -23,7 +23,7 @@
                 <property name="poolPingQuery"
                           value="select now() from kpi.lastupdatedlog limit 1"/>
                 <property name="poolPingConnectionsNotUsedFor"
-                          value="36000"/>
+                          value="30000"/>
             </dataSource>
         </environment>
     </environments>
