@@ -82,7 +82,7 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
             doc.select(".fx_content").html(text);
             medias = poolService.listGeoMedia(docid);
 //            System.out.println(new Gson().toJson(medias));
-            title = text;
+            title = document.getText();
         } else {
             String creator = item.getPointer().getCreator();
             ChannelDocument document = poolService.getChannelDocument(creator, docid);
@@ -90,7 +90,7 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
             doc.select(".fx_content").html(text);
             medias = poolService.listChannelMedia(creator, box.getPointer().getId(), docid);
 //            System.out.println(new Gson().toJson(medias));
-            title = text;
+            title = document.getContent();
         }
         if (!StringUtil.isEmpty(title) && title.length() > 40) {
             title = title.substring(0, 40);
