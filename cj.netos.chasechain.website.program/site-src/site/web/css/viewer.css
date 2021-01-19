@@ -128,3 +128,7 @@ share span{
     color: #222222;
 
 }
+.my-gallery video{
+    width: 100%;
+    height: 200px;
+}

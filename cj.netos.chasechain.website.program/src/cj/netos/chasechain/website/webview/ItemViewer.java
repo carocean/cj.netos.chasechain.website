@@ -120,6 +120,24 @@ public class ItemViewer implements IGatewayAppSiteWayWebView {
                 ul.appendChild(share);
                 return;
             }
+            if ("video".equals(media.getType())) {
+                Element video = ul.select("video").first().clone();
+                ul.empty();
+                String src=media.getSrc();
+                int pos=src.indexOf("?");
+                if (pos < 0) {
+                    src=String.format("%s?accessToken=%s&nonce=%s", src, accessToken, nonce);
+                }else{
+                    src=String.format("%s&accessToken=%s&nonce=%s", src, accessToken, nonce);
+                }
+                Element source=  video.select("source").first().clone();
+                video.empty();
+                source.attr("src",src);
+                video.appendChild(source);
+                video.appendText("不支持的视频格式");
+                ul.appendChild(video);
+                return;
+            }
         }
         Element cfigure = ul.select("figure").first().clone();
         ul.empty();
